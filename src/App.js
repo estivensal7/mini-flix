@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { requireAuth } from "./utils/AuthService";
+import Upload from "./components/Upload/Upload";
+import Display from "./components/Display/Display";
+import Callback from "./components/Callback/Callback";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+function App() {
+	return (
+		<Router>
+			<div>
+				<Switch>
+					<Route path="/" component={Display} />
+					<Route
+						path="/upload"
+						component={Upload}
+						onEnter={requireAuth}
+					/>
+					<Route
+						path="/callback"
+						component={Callback}
+					/>
+				</Switch>
+			</div>
+		</Router>
+	);
 }
 
 export default App;
