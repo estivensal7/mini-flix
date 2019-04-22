@@ -1,5 +1,6 @@
 .App {
 	text-align: center;
+	background: url("./images/bgPattern.jpg");
 }
 
 .App-logo {
@@ -42,7 +43,7 @@
 
 .videos {
 	border: 1px solid red;
-	height: 400px;
+	height: 300px;
 }
 
 .navbar-nav {
@@ -50,5 +51,5 @@
 }
 
 .nav-item {
-	margin: 0px 50px;
+	margin: 0px 20px;
 }

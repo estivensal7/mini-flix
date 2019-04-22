@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
 import Nav from "../Nav/Nav";
-import { isLoggedIn } from "../../utils/AuthService";
-import { CloudinaryContext, Transformation, Video } from "cloudinary-react";
+import { CloudinaryContext, Video } from "cloudinary-react";
 import axios from "axios";
-import { Cloudinary } from "cloudinary-core";
+import { Share } from "react-twitter-widgets";
 
 class Display extends Component {
 	state = {
@@ -35,11 +33,11 @@ class Display extends Component {
 				</h3>
 				<hr />
 
-				<div className="col-sm-12">
+				<div className="col-sm-6 mx-auto">
 					<CloudinaryContext cloudName="dnnsgy24u">
 						{videos.map((data, index) => (
 							<div
-								className="col-sm-4"
+								className="col-sm-12"
 								key={index}
 							>
 								<div className="embed-responsive embed-responsive-4by3">
@@ -51,11 +49,19 @@ class Display extends Component {
 										height="300"
 										controls
 									/>
-								</div>{" "}
-								Created at{" "}
-								{
-									data.created_at
-								}
+								</div>
+								<div>
+									Created
+									at{" "}
+									{
+										data.created_at
+									}
+								</div>
+								<Share
+									url={`http://res.cloudinary.com/unicodeveloper/video/upload/${
+										data.public_id
+									}.mp4`}
+								/>
 							</div>
 						))}
 					</CloudinaryContext>

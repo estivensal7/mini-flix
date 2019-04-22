@@ -7,10 +7,11 @@ import Upload from "./components/Upload/Upload";
 import Display from "./components/Display/Display";
 import Callback from "./components/Callback/Callback";
 import { requireAuth } from "./utils/AuthService";
+import "./App.css";
 
 const Root = () => {
 	return (
-		<div className="container">
+		<div className="App">
 			<Router history={browserHistory}>
 				<Route path="/" component={Display} />
 				<Route

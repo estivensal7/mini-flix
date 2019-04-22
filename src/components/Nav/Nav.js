@@ -6,9 +6,12 @@ import "../../App.css";
 class Nav extends Component {
 	render() {
 		return (
-			<nav className="navbar navbar-light bg-light">
+			<nav className="navbar fixed-top navbar-light bg-dark">
 				<div className="navbar-header">
-					<Link className="navbar-brand" to="/">
+					<Link
+						className="navbar-brand text-white"
+						to="/"
+					>
 						Miniflix
 					</Link>
 				</div>
@@ -16,7 +19,7 @@ class Nav extends Component {
 					<li className="nav-item">
 						<Link
 							to="/"
-							className="text-dark"
+							className="text-white"
 						>
 							All Videos
 						</Link>
@@ -25,7 +28,7 @@ class Nav extends Component {
 						{isLoggedIn() ? (
 							<Link
 								to="/upload"
-								className="text-dark"
+								className="text-white"
 							>
 								Upload Videos
 							</Link>
@@ -34,7 +37,7 @@ class Nav extends Component {
 						)}
 					</li>
 				</ul>
-				<ul className="nav navbar-nav navbar-right">
+				<ul className="nav navbar-nav navbar-right mr-sm-2">
 					<li>
 						{isLoggedIn() ? (
 							<button
